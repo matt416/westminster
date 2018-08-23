@@ -1,0 +1,17 @@
+=load-font($font-name, $props : false)
+		
+	$font-path : map-get($url, 'font')
+
+	$index : str-index($font-name, '-')
+	$font-family : $font-name
+
+	@if ($index)
+		$font-family : str-slice($font-name, 0, $index - 1)
+
+	@font-face
+		:font-family $font-family
+		:src url("#{$font-path}/#{$font-name}/#{$font-name}.eot")
+		:src url("#{$font-path}/#{$font-name}/#{$font-name}.eot?#iefix") format("embedded-opentype"), url("#{$font-path}/#{$font-name}/#{$font-name}.woff") format("woff"), url("#{$font-path}/#{$font-name}/#{$font-name}.ttf") format("truetype"), url("#{$font-path}/#{$font-name}/#{$font-name}.svg#ywftsvg") format("svg")
+		@if $props
+			@each $prop in map-keys($props)
+				:#{$prop} map-get($props, $prop)

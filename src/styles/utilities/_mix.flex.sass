@@ -1,0 +1,106 @@
+=flex($props : false)
+	
+	// type (inline/block), x, y, grow, shrink, wrap, direction
+	@if $props == false
+		:display flex
+	
+	@else 
+		@if map-has-key($props, type)
+			@if map-get($props, type) == inline
+				:display inline-flex
+	
+		@else
+			:display flex
+
+		@if map-has-key($props, y)
+			+flex-y(map-get($props, y))
+
+		@if map-has-key($props, x)
+			+flex-x(map-get($props, x))
+
+		@if map-has-key($props, self)
+			+flex-self(map-get($props, self))
+
+		@if map-has-key($props, content)
+			+flex-content(map-get($props, content))
+
+		@if map-has-key($props, grow)
+			+flex-grow(map-get($props, grow))
+
+		@if map-has-key($props, shrink)
+			+flex-shrink(map-get($props, shrink))
+
+		@if map-has-key($props, wrap)
+			+flex-wrap(map-get($props, wrap))
+
+		@if map-has-key($props, direction)
+			+flex-direction(map-get($props, direction))
+
+		
+		
+=flex-x($position : start)
+
+	@if $position == 'end'
+		$position : flex-end
+		
+	@else if $position == 'start'
+		$position : flex-start
+
+	:justify-content $position
+
+=flex-y($position : start)
+	// start, end, center, space-between, space-around, stretch
+
+	@if $position == 'end'
+		$position : flex-end
+		
+	@else if $position == 'start'
+		$position : flex-start
+
+	:align-items $position
+
+=flex-self($position : start)
+	// start, end, center, space-between, space-around, stretch
+
+	@if $position == 'end'
+		$position : flex-end
+		
+	@else if $position == 'start'
+		$position : flex-start
+
+	:align-self $position
+
+=flex-content($position : start)
+	@if $position == 'end'
+		$position : flex-end
+		
+	@else if $position == 'start'
+		$position : flex-start
+
+	:align-content $position
+
+=flex-grow($bool)
+
+	@if $bool
+		:flex-grow 1
+		
+	@else
+		:flex-grow 0
+
+
+=flex-shrink($bool)
+	@if $bool
+		:flex-shrink 1
+		
+	@else
+		:flex-shrink 0
+
+=flex-wrap($bool)
+	@if $bool
+		:flex-wrap wrap
+		
+	@else
+		:flex-wrap nowrap
+
+=flex-direction($direction : row)
+	:flex-direction $direction

@@ -1,0 +1,79 @@
+@function font-size($size)
+	@return map-get($font-size, $size)
+
+// =font-size($type : false, $size : md)
+// 	$map : false
+// 	@if map-has-key($font-size, $type)
+// 		$map : map_get($font-size, $type)
+	
+// 		@if map-has-key($map, $size)
+// 			$sizes : map_get($map, $size)
+
+// 			+set-responsive-font-size(nth($sizes, 1), nth($sizes,2))
+
+
+
+// =font-size($min : 1em, $max : 1em, $min-screen : 512, $max-screen : false)
+		
+// 	$min : strip-unit($min)
+// 	$max : strip-unit($max)
+
+// 	$max-em : $min * $max
+
+// 	$min-px : $min * strip-unit($root-font-size)
+// 	$max-px : strip-unit($max-em) * strip-unit($root-font-size)
+		
+// 	$font-vw : ($min-px / $min-screen) * 100 // Font size in Viewport width
+// 	$max-viewport : round($max-px / ($font-vw / 100))
+
+// 	:font-size #{$min}em
+	
+// 	@media screen and (min-width: #{$min-screen}px) and (max-width: #{$max-viewport}px)
+// 		:font-size #{$font-vw}vw
+
+// 	@media screen and (max-width: #{$min-screen}px)
+// 		:font-size #{$min}em
+
+// 	@media screen and (min-width: #{$max-viewport}px)
+// 		:font-size #{$max-em}em
+
+// 	//	@media screen
+// 	//		:font-size #{$min}px
+
+// 	//	@media print
+// 	//		:font-size #{$min - 4}px
+ 
+
+
+=font-size($min : 1em, $max : false, $min-screen : 512, $max-screen : false)
+	
+	@if $max == false
+		:font-size #{$min}em
+	
+	@else
+		$min : strip-unit($min)
+		$max : strip-unit($max)
+
+		$min-px : $min * strip-unit($root-font-size)
+		$max-px : $max * strip-unit($root-font-size)
+			
+		$font-vw : ($min-px / $min-screen) * 100 // Font size in Viewport width
+		$max-viewport : round($max-px / ($font-vw / 100))
+
+		:font-size #{$min}em
+		
+		@media screen and (min-width: #{$min-screen}px) and (max-width: #{$max-viewport}px)
+			:font-size #{$font-vw}vw
+
+		@media screen and (max-width: #{$min-screen}px)
+			:font-size #{$min}em
+
+		@media screen and (min-width: #{$max-viewport}px)
+			:font-size #{$max}em
+
+		//	@media screen
+		//		:font-size #{$min}px
+
+		//	@media print
+		//		:font-size #{$min - 4}px
+ 

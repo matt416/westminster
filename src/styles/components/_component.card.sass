@@ -1,0 +1,32 @@
+
+
+.card, %card
+	+flex(( direction : column ))
+	+inside(a, 24)
+	:border-radius 7px
+	:position relative
+
+	// Variants
+	&-outline
+		:border 2px transparent solid
+		:border-color color(white, 40)
+
+	&-overflow-bounds
+		//+autosize(margin, left right, -12px, -24px)
+
+	&-shadow
+		:box-shadow 0 6px 8px color(deep-yellow,30), 0 0 0 2px color(deep-yellow,15)
+
+	&-hover
+		:transition all 0.2s ease-out
+		:transition-property box-shadow, transform
+		:transform scale(1)
+
+		&:hover
+			:transform scale(1.05)
+
+		&:visited
+			:transform scale(0.9)
+
+	// & .button:last-of-type
+	// 	:margin-bottom -8px

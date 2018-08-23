@@ -1,0 +1,5 @@
+@function font-family($font : 'default')
+	@return map-get(map-get($font-family, $font), family), map-get(map-get($font-family, $font), alt)
+
+=font-family($font : 'default')
+	:font-family map-get(map-get($font-family, $font), family), map-get(map-get($font-family, $font), alt)

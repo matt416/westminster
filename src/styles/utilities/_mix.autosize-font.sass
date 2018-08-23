@@ -1,0 +1,25 @@
+// Min is the font size at a viewport width of 500px
+// Max viewport width is calculated automatically to stop scaling the font when it reaches that width.
+
+=autosize-font($min : 20, $max : 40, $min-screen : 512, $max-screen : false)
+
+	$min : strip-unit($min)
+	$max : strip-unit($max)
+
+	$font-vw : ($min / $min-screen) * 100 // Font size in Viewport width
+	$max-viewport : round($max / ($font-vw / 100))
+	
+	:font-size #{$min}px
+	:font-size #{$font-vw}vw
+
+	@media screen and (max-width: #{$min-screen}px)
+		:font-size #{$min}px
+
+	@media screen and (min-width: #{$max-viewport}px)
+		:font-size #{$max}px
+
+	//	@media screen
+	//		:font-size #{$min}px
+
+	//	@media print
+	//		:font-size #{$min - 4}px

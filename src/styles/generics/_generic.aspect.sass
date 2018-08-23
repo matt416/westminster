@@ -1,0 +1,27 @@
+.aspect, %aspect
+	&4x3
+		+aspect-ratio(4, 3)
+
+		.img
+			:background-size cover
+			:background-repeat no-repeat
+			:background-position 50% 50%
+
+	&16x9
+		+aspect-ratio(16, 9)
+	&1x1
+		+aspect-ratio(1, 1)
+
+.fit-cover
+	:min-width 100%
+	:min-height 100%
+
+	.img
+		:background-size cover !important
+
+.fit-contain
+	:min-width 100%
+	:min-height 100%
+
+	.img
+		:background-size contain !important

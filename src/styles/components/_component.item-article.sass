@@ -1,0 +1,29 @@
+.item-article
+	+inside(b, 24)
+	:overflow hidden
+	+text(black)
+
+.item-article-publication-logo
+	+flex(( x : center, y : center ))
+	+fill(pale-yellow)
+	:margin -25px -25px 24px // Extra pixel to compensate for rounding errors.
+	:width calc(100% + 48px + 2px)
+
+	svg
+		:display block
+		:fill color(black)
+
+.item-article-title
+	:font-size 18px
+
+.item-article-button
+	+fill(pale-yellow)
+	+text(black)
+	+stroke(yellow)
+	:margin-top auto
+
+.item-article-date
+	:display inline-block
+	+outside(b, 12)
+	+autosize-font(14px, 16px)
+	:color color(black)

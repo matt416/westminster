@@ -1,0 +1,9 @@
+=line-height($type : false, $size : md)
+	$map : false
+	@if map-has-key($line-height, $type)
+		$map : map_get($line-height, $type)
+	
+		@if map-has-key($map, $size)
+			$line-height : map_get($map, $size)
+
+			:line-height $line-height

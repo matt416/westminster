@@ -1,0 +1,16 @@
+// Root Elements
+html, body
+	:-webkit-font-smoothing antialiased
+	:-moz-osx-font-smoothing grayscale
+	:text-rendering optimizeLegibility
+	:height 100%
+	// +autosize-font($root-font-size-min, $root-font-size-max)
+	:font-size $root-font-size
+	
+body
+	:font-size $root-font-size
+	:line-height $root-line-height
+	+font-family(default)
+	+fill($root-fill-color)
+	+text($root-text-color)
+	+link($root-link-color)

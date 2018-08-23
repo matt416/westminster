@@ -1,0 +1,43 @@
+@function color($color, $opacity : 100, $color-list : false)
+	$list : false
+
+	@if global-variable-exists(colors) and $color-list == false
+		$list : $colors	
+
+	@if length($color) == 2
+		$opacity : nth($color, 2)
+		$color : nth($color, 1)
+
+	@return set-color($list, $color, $opacity)
+
+// @function color($color_props...)
+// 	$list : $colors
+// 	$color : nth($color_props, 1)
+// 	$opacity : 100
+
+// 	@if length($color_props) == 2
+// 		$color : nth($color_props, 1)
+// 		$opacity : nth($color_props, 2)
+
+// 	@if length($color_props) == 3
+// 		$list : nth($color_props, 1)
+// 		$color : nth($color_props,2)
+// 		$opacity : nth($color_props, 3)
+
+// 	@return set-color($list, $color, $opacity)
+
+
+// color from default list
+@function set-color($color-list, $color, $opacity : 100)
+	@if $color == transparent or $color == none
+		@return transparent
+
+	@if str-index("#{$color}", "#") == 1
+	 	@return rgba($color, $opacity / 100)
+
+	@if map-has-key($color-list, $color)
+		@return rgba(map-get($color-list, $color), $opacity / 100)
+
+	
+	@warn "Unknown `#{$color}` in $colors."
+	@return null

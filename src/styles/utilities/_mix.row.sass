@@ -1,0 +1,27 @@
+$gutter : 16px
+
+=row($width : false)
+	:width 100%//calc(100% - 32px)
+	:display flex
+	:flex-direction row
+	:align-items stretch
+	:justify-content space-between
+	:position relative
+	:flex-wrap wrap
+	:margin 0 auto
+	// Add a gutter of 16px to each side of a row.
+	// :border-left #{$gutter} transparent solid
+	// :border-right #{$gutter} transparent solid
+	:overflow hidden
+	:z-index auto
+	
+	@if $width
+		+row-width($width)
+
+// =row-width($width)
+// 	:padding-left calc( ( ( 100% - (#{ grid($width) } + (#{$gutter}*2)) ) / 2 )  )
+// 	:padding-right calc( ( ( 100% - (#{ grid($width) } + (#{$gutter}*2)) ) / 2 )  )
+
+=row-width($width)
+	:padding-left calc(( 100% - #{ grid($width) } ) / 2 )
+	:padding-right calc(( 100% - #{ grid($width) } ) / 2 )

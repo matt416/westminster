@@ -1,0 +1,27 @@
+.event-speaker
+	// +use(card)
+	+inside(a, 16)
+	:overflow hidden
+	:height 100%
+	
+	+text(white)
+	:border 1px color(white, 10) solid
+
+	&:last-child
+		:margin-bottom 0
+
+.event-speaker-photo
+	:width 100%
+
+.event-speaker-name
+	+autosize-font(16px, 18px)
+	:font-weight font-weight(bold)
+	:margin-top 24px
+	:margin-bottom 0
+
+.event-speaker-role
+	+autosize-font(14px, 16px)
+
+.event-speaker-bio
+	p
+		:font-size font-size(small)

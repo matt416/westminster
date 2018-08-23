@@ -1,0 +1,48 @@
+$class : false
+
+@each $axis in $space-axis
+	$axis-name : nth($axis, 1)
+	$axis-value : nth($axis, 2)
+	
+	@each $property in $space-property
+		$property-key : nth($property, 1)
+		$property-value : nth($property, 2)
+
+
+		@each $size in $space-size
+			$size-name : nth($size, 1)
+			$size-value : nth($size, 2)
+			
+			@if $axis-name == 'a'
+				$class : #{$property-key}-#{$size-name}
+			@else
+				$class : #{$property-key}-#{$axis-name}-#{$size-name}
+				
+			.#{$class}
+				@each $position in $axis-value
+					:#{$property-value}-#{$position} #{$size-value}
+	
+
+@each $viewport in $viewports
+	+display-for($viewport)
+		@each $property in $space-property
+			$property-key : nth($property, 1)
+			$property-value : nth($property, 2)
+			
+			@each $size in $space-size
+				$size-name : nth($size, 1)
+				$size-value : nth($size, 2)
+				
+				@each $axis in $space-axis
+					$axis-name : nth($axis, 1)
+					$axis-value : nth($axis, 2)
+
+					@if $axis-name == 'a'
+						$class : #{$viewport}_#{$property-key}-#{$size-name},
+
+					@else
+						$class : #{$viewport}_#{$property_key}-#{$axis-name}-#{$size-name}
+					
+					.#{$class}
+						@each $position in $axis-value
+							:#{$property-value}-#{$position} #{$size-value}

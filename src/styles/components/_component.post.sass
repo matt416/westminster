@@ -1,0 +1,105 @@
+.posts
+	+view(100p)
+	+inside(x, 16)
+	+flex(( x : space-between, y : stretch, wrap : true ))
+
+.post
+	+display-for(lg xl)
+		+view(33p, 12)
+
+	+display-for(sm md)
+		+view(50p, 12)
+
+	+display-for(xs)
+		+view(100p, 12)
+
+	.card
+		+fill(white)
+		:height 100%
+		+inside(a, none)
+
+
+	// +display-for(xs sm)
+	// 	:width 100%
+	
+	// +display-for(md)
+	// 	:flex-basis calc(50% - 24px)
+	
+	// +display-for(lg xl)
+	// 	:flex-basis calc(33.3% - 24px)
+		
+	&:hover		
+		.post-admin-tools
+			:display flex
+			:transform translateY(0)
+			:opacity 1
+			:visibility visible
+			:pointer-events auto
+
+.post-admin-tools
+	:display flex
+	:height 36px
+	:width 36px
+	//:background-color rgba(255,255,255,0.9)
+	:border-radius 50%
+	:box-shadow 0 1px 2px 1px rgba(0,0,0,0.10), 0 1px 0 0 rgba(0,0,0,0.05)
+	:position absolute
+	:top 24px
+	:right 24px
+	:z-index 1000
+	:transition all 0.2s ease-out
+	:justify-content center
+	:align-items center
+	:transform translateY(20px)
+	+fill(white)
+	:opacity 0
+	:visibility hidden
+	:pointer-events none
+
+	svg
+		:width 16px
+		:height 16px
+		:fill color(black)
+
+	&:hover
+		:box-shadow 0 0 0 4px rgba(0,0,0,0.2)
+		+fill(bright-blue)
+
+		svg
+			:fill color(white)
+
+
+
+
+.post .card
+	:transition all 0.2s ease-out
+	:transition-property transform, background-color
+	:transform translateY(0)
+	:box-shadow 0 1px 1px 1px color(deep-yellow,15)
+	:z-index 1
+	
+	&::after
+		:content ""
+		:width 100%
+		:height 100%
+		:position absolute
+		:top 0
+		:left 0
+		:z-index -1
+		:border-radius 7px
+		:opacity 0
+		:box-shadow 0 16px 32px 0 color(deep-yellow,60)
+		:transition all 0.8s ease-out
+		:transition-property transform, box-shadow
+
+	&:hover
+		:transform translateY(-5px)
+		+fill(white, 100)
+		:box-shadow 0 0 0 0 transparent
+			
+		&::after
+			:opacity 1
+
+
+	// &:visited
+	// 	:transform scale(0.9)

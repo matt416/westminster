@@ -1,0 +1,6 @@
+=use($primary, $classes...)
+	@extend %#{$primary} !optional
+	
+	@if $classes
+		@each $class in $classes
+			@extend %#{$primary}-#{$class}

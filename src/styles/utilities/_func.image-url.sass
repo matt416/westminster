@@ -1,0 +1,4 @@
+@function image-url($image)
+	$image-url : map-get($url,'image')
+
+	@return url("#{$image-url}/#{$image}")

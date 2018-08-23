@@ -1,0 +1,5 @@
+@each $viewport in $viewports
+
+	.#{$viewport}-hidden
+		+display-for($viewport)
+			:display none

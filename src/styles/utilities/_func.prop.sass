@@ -1,0 +1,15 @@
+@function prop($path, $module : false)
+	
+	@if global-variable-exists(props) and $module == false
+		$module : $props
+
+	$selector : nth($path, 1)
+	$property : nth($path, 2)
+
+	$selector_map : map-get($module, $selector)
+	$value : map-get($selector_map, $property)
+
+	@if $value == null
+		@warn "Unknown prop path `#{$value}`."
+
+	@return $value

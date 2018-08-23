@@ -1,0 +1,34 @@
+.feature-event
+	:border-color rgba(color(white), 0.25)
+	:color color(white)
+	:text-align center
+	:display flex
+	:flex-direction column
+	:align-items center
+	
+	&__actions
+		+outside(b, 12)
+
+	&__title
+		+outside(b, 4)
+
+	&__host
+		:display inline-block
+		+autosize-font(14px, 16px)
+		+outside(b, 24)
+		:color rgba(color(white), 0.6)
+	
+	&__summary
+		+outside(b, 24)
+
+	&__date
+		+outside(b, 24)
+		:color color(yellow)
+
+	&__ticket-price
+		:display inline-block
+		:padding-top 2px
+		:font-size 16px
+		:font-style italic
+		:margin-left 8px
+

@@ -1,0 +1,39 @@
+.event-calendar
+	:width 100%
+	+inside(b, 32)
+
+.event-venue
+	:width 100%
+	+inside(b, 32)
+
+.event-tickets
+	:width 100%
+	+fill(black, 5)
+	:border 1px color(black, 10) solid
+	:border-radius 3px
+	
+	+inside(t, 32)
+	+inside(b, 16)
+
+.event-calendar-date
+	:margin-bottom 4px
+
+.event-calendar-time
+	:margin-bottom 0
+
+
+.event-venue-title
+	+autosize-font(18px, 20px)
+	:margin-bottom 4px
+
+.event-venue-
+	&address
+		:font-size 18px
+	&help
+		:margin-top 4px
+		:font-size 16px
+		:display block
+
+.event-ticket-price
+	:display block
+	:margin-top 8px

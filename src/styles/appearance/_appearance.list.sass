@@ -1,0 +1,49 @@
+// Select a list that has no class, if it has a class, it needs list-bullet to apply the style
+ol li, ul li
+	:font-size $root-paragraph-font-size
+	:line-height $root-paragraph-line-height
+	:list-style none
+	:margin-bottom 8px
+
+	small
+		:font-size 0.875em
+		:display block
+		+text(black, 50)
+	
+
+ol:not([class]), ul:not([class]),
+ol.list-number, ul.list-bullet
+	:margin-bottom $root-paragraph-margin-after
+
+	li
+		:list-style-position inside
+		:position relative
+		:padding-left 3ex
+		:overflow hidden
+		
+		&::before
+			:content "• "
+			:position absolute
+			:top 0
+			:left 0
+			:display inline-block
+			:height 100%
+			:width 3ex
+
+ol:not([class]), ol.list-number
+	:counter-reset ol-list
+
+	li
+		:counter-increment ol-list
+
+		&::before
+			:content counter(ol-list) ". "
+
+
+// .list li // No bullets
+// 	:list-style-type none
+// 	:list-style-position outside
+// 	:margin inherit
+// 	:padding inherit
+// 	&::before
+// 		:content ""

@@ -1,0 +1,201 @@
+@import generics/reset
+
+.document
+	:width 100vw
+	:height 100vh
+	:background dodgerblue
+	:position relative
+	:overflow auto
+
+.artboard
+	:width 100vw
+	:height 100vh
+	// :position absolute
+	// :top 0
+	// :left 0
+	// :right 0
+	// :bottom 0
+	// :margin auto
+	// :background white
+	// :color black
+
+	:background white
+
+body
+	:font-family Montserrat
+	:font-size 14px
+	:line-height 1.2em
+
+
+
+.artboard
+	// Zoom level
+	:transform scale(1)
+
+	svg
+		:width 100%
+		:height 100%
+		:position absolute
+		:top 0
+		:left 0
+		:z-index -1000
+		
+// .artboard
+//	 :position relative
+//	 :box-sizing border-box
+//	 :width 200vw
+//	 :height 200vh
+//	 :display flex
+//	 :justify-content flex-start
+//	 :align-items flex-start
+//	 :padding 80px
+//	 :flex-wrap wrap
+
+.block
+	:min-width 200px
+	:max-width 220px
+	:background #F2F3FF
+	:border 1px #7377FF solid
+	:margin-right 100px
+	:position absolute
+	//:box-shadow 0 4px 8px -4px rgba(0,0,0,0.2)		
+	h2
+		:width 100%
+		:padding 16px
+		:align-items center
+		:justify-content center
+		:display flex
+		:min-height 56px
+		:line-height 20px
+		:text-align center
+		:color #7377FF
+			
+.block--type_condition
+	:border-color #3090FF
+	:background #F0F7FF
+	:position relative
+	
+	&::before
+		:content "A"
+		:top 0
+		:margin auto
+		:left 0
+		:right 0
+		:transform translateY(-50%)
+		:position absolute
+		:width 24px
+		:height 24px
+		:border-radius 50%
+		:background-color #3090FF
+		:color white
+		:display flex
+		:justify-content center
+		:align-items center	
+		
+	h2
+		:color #3090FF
+	
+	ul li
+		:background-color #E8F3FF
+		:color #3090FF
+
+		
+ul
+	:border-top 1px rgba(0,0,0,0.05) solid
+	:width 100%
+	
+	li
+		:box-sizing border-box
+		:background #FFFFFF
+		:color #333333
+		:display flex
+		:justify-content flex-start
+		:align-items center
+		:min-height 36px
+		:padding 8px 16px
+		:font-size 14px
+		:line-height 1.1em
+		:position relative
+		
+	input[type=text]
+		:appearance none
+		:width 100%
+		:height 100%
+		:border none
+		:font-family Montserrat
+		:padding 0
+		:box-sizing border-box
+		:background #FFFFFF
+		:color #333333
+		:display flex
+		:justify-content flex-start
+		:align-items center
+		:font-size 14px
+		:line-height 1.1em
+		
+		// &:focus
+		// 	:background dodgerblue
+		
+		&.active
+			:background #3090FF
+			:color #FFF
+	 
+		&:not(:last-child)
+			:border-bottom 1px rgba(0,0,0,0.05) solid
+
+		&.has_event::after
+			:box-sizing border-box
+			:content ""
+			:top 0
+			:bottom 0
+			:margin auto
+			:right 0px
+			:transform translateX(calc(100% - 10px))
+			:position absolute
+			:background-image url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16' xml:space='preserve'%3E%3Cpath fill='%23FFFFFF' d='M10.48,3.99H6.914c-0.086,0-0.162,0.181-0.181,0.262L5.336,8.851C5.301,8.972,5.391,9.032,5.517,9.032 h1.256l-0.822,3.419c-0.05,0.191,0.191,0.383,0.328,0.237l4.24-4.755c0.111-0.121,0-0.414-0.141-0.414H8.79l1.856-3.242 c0.034-0.06,0.034-0.132,0-0.192C10.611,4.026,10.548,3.99,10.48,3.99L10.48,3.99z'/%3E%3C/svg%3E%0A")
+			:background-position 50% 50%
+			:background-repeat no-repeat
+			:height 20px
+			:padding 0 6px 0 10px
+			:border-radius 10px
+			:font-size 10px
+			:background-color #FFBE1E
+			:color white
+			:display flex
+			:justify-content center
+			:align-items center
+			:border 2px #FFE9B3 solid
+			:box-shadow 0 0 0 1px #FFBE1E, 0 1px 0 1px rgba(0,0,0,0.05)
+			
+		&.condition
+			:padding 0 10px 10px
+			:background-color #E8F3FF
+			:position relative
+			:display block
+		
+			span
+				:position relative
+				:display block
+				:min-height 36px
+				:display flex
+				:align-items center
+				:padding-left 6px
+				:color #3090FF
+				&::before
+					:content "A"
+					:top 0
+					:bottom 0
+					:margin auto
+					:left -10.5px
+					:transform translateX(-50%)
+					:position absolute
+					:width 20px
+					:height 20px
+					:border-radius 50%
+					:background-color #3090FF
+					:color white
+					:display flex
+					:justify-content center
+					:align-items center
+			ul
+				:border 1px rgba(0,0,0,0.05) solid

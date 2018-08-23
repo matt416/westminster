@@ -1,0 +1,169 @@
++display-for(md lg xl)
+	.mainmenu
+		:display flex
+		:align-items center
+		:justify-content flex-end
+		:flex-wrap nowrap
+		
+		> li
+			:display inline-block
+			:white-space nowrap
+			:position relative
+			:margin 0 16px
+			:list-style none
+			
+			> a.menu-link
+				+text(white)
+				+font-size(1em, 1.125em, 768)
+				:display block
+				:border-bottom 2px transparent solid
+				
+			&.active
+				> a.menu-link
+					:border-bottom-color color(white)
+			
+			&.menu-toggle-close,
+			&.menu-home-link
+				:display none
+
+			&:last-child
+				:margin-right 0
+			
+			&:hover			
+				ul.submenu
+					:display block
+
+.menu-toggle-open
+	:display none
+	:cursor pointer
+
+	+display-for(xs sm)
+		:display inline-block !important
+
+@keyframes slideMenuIn
+	from
+		:transform translateY(100%)
+	to
+		:transform translateY(0)
+
+@keyframes slideMenuOut
+	from
+		:transform translateY(0)
+	to
+		:transform translateY(100%)
+
++display-for(xs sm)
+	.mainmenu
+		// :will-change transform
+		:display none
+		+fill(black)
+		:transform translateY(100%)
+		// :transition transform 1s
+		:flex-direction column
+		:width 100vw
+		:height 100%
+		:position fixed
+		:overflow-y auto
+		:justify-content flex-start
+		:align-items stretch
+		:top 0
+		:left 0
+		:right 0
+		:bottom 0
+		:-webkit-overflow-scrolling touch
+		:z-index 10000
+
+		&.menu-open
+			:transform translateY(0)
+			:animation slideMenuIn 0.3s
+			:display flex
+
+		&.menu-closed
+			:display flex
+			:transform translateY(100%)
+			:animation slideMenuOut 0.3s
+			// :animation-direction reverse
+
+		> li
+			:font-size 1.25em
+			:border-bottom 1px color(white,10) solid
+
+			a, &.menu-toggle-close
+				:width 100%
+				:min-height 48px
+				:display flex
+				:align-items center
+				:justify-content flex-start
+				:padding 0 24px
+				:color white !important
+			
+			&.menu-toggle-close
+				:justify-content flex-end
+				:cursor pointer
+				
+				svg
+					:width 24px
+					:height 24px
+					:fill color(white)
+
+.submenu
+	+display-for(xs sm)
+		:display none !important
+	
+	+fill(white)
+	:box-shadow 0 0 0 1px color(white, 10), 0 2px 4px 0 color(black, 20)
+	:z-index 100
+	:display none
+	:position absolute
+	:left -24px
+	:margin-top -2px
+	:border-radius 8px
+	:text-align left
+	:padding 8px 0
+	
+	a.menu-link
+		+autosize-font(14px, 16px)
+		:display block
+		:padding 6px 24px 2px
+
+
+	li
+		:margin-bottom 0
+		> a.menu-link
+			+text(black)
+	
+		&:hover, &.active:hover
+			> a.menu-link
+				+fill(bright-blue)
+				+text(white)
+		
+		&.active
+			a.menu-link
+				+fill(black, 10)
+				+text(black)
+
+.menu-subchild
+	:position relative
+	
+	> a.menu-link
+		:padding-left 38px
+	
+		&::before
+			:content ""
+			:position absolute
+			:top 0
+			:bottom 0
+			:margin auto 0
+			:height 5px
+			:left 24px
+			:border-radius 10px
+			:border-left 5px #CCC solid
+			:margin-right 8px
+	
+	&:hover, &.active:hover
+		a::before
+			:border-color color(white)
+
+	&.active
+		a::before
+			:border-color color(black)

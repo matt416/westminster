@@ -1,0 +1,17 @@
+=autosize($property, $positions, $min, $max)
+	$min : strip-unit($min)
+	$max : strip-unit($max)
+	
+	$variable-size : $min / 320
+	$max-viewport :  round($max / $variable-size)
+	
+	@each $position in $positions
+		:#{$property}-#{$position} percentage($variable-size)
+
+	@media screen and (max-width: 320px)
+		@each $position in $positions
+			:#{$property}-#{$position} #{$min}px
+
+	@media screen and (min-width: #{$max-viewport}px)
+		@each $position in $positions
+			:#{$property}-#{$position} #{$max}px

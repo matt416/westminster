@@ -1,0 +1,63 @@
+// h1, h2, h3, h4, h5, h6
+// 	+font-weight(bold)
+// 	+outside(b,16)
+
+
+// h1:not(:first-child), h2:not(:first-child), h3:not(:first-child),
+// h4:not(:first-child), h5:not(:first-child), h6:not(:first-child)
+// 	+outside(t,32)
+
+// h1
+// 	+not("title-font-")
+// 		+font-size(title,xl)
+// 		+line-height(title, xl)
+
+// h2
+// 	+not("title-font-")
+// 		+font-size(title, md)
+// 		+line-height(title, md)
+
+// h3
+// 	+not("title-font-")
+// 		+font-size(title, sm)
+// 		+line-height(title, sm)
+// h4
+// 	+not("title-font-")
+// 		+font-size(title, xs)
+// 		+line-height(title, xs)
+
+h1, h2, h3, h4, h5, h6
+	+font-weight(bold)
+	:line-height 1.4em
+	:margin-bottom 24px
+
+h1
+	+font-size(2em, 2.5em)
+
+h2
+	+font-size(1.5em, 1.75em)
+
+
+h3
+	+font-size(1.25em, 1.5em)
+
+h4
+	+font-size(1.125em, 1.25em)
+
+h5
+	+font-size(1em, 1.125em)
+
+h6
+	:font-size 1em
+
+
+h1, h2, h3, h4, h5, h6
+	& + p
+		:margin-top -12px
+		
+// Generate Generic Classes
+// @each $size in map-get($font-size, title)
+// 	$name : nth($size, 1)
+
+// 	.title-font-#{$name}
+// 		+font-size(title, $name)

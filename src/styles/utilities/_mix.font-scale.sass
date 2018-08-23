@@ -1,0 +1,14 @@
+=font-scale($size : 0, $root: true, $ignore-min : false)
+	// $root: if true, use root em, otherwise use parent em
+	// $size: + / - integer in pixels.
+
+	$px : ($base-font-size + $size)
+	@if $px < $min-font-size and $ignore-min == false
+		$px : $min-font-size
+
+	$result : $px / $base-font-size
+
+	@if ($root)
+		:font-size #{$result}rem
+	@else
+		:font-size #{$result}em

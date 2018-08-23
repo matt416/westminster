@@ -1,0 +1,32 @@
+.item-presentation
+	+inside(b, 24)
+	:overflow hidden
+	+text(black)
+	:height 100%
+	+flex(( direction:column, y : stretch, x : start))
+
+.item-presentation-image
+	+flex(( x : center, y : center ))
+	:margin -25px -25px 24px
+	:padding 13px 0 12px
+	:width calc(100% + 48px + 2px)
+
+	svg
+		:display block
+		:fill color(black)
+
+.item-presentation-title
+	:font-size 18px
+
+.item-presentation-button
+	+fill(pale-yellow)
+	+text(black)
+	+stroke(yellow)
+	:margin-top auto
+
+
+.item-presentation-date
+	:display inline-block
+	+outside(b, 12)
+	+autosize-font(14px, 16px)
+	:color color(black)

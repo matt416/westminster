@@ -1,0 +1,24 @@
+@each $color in $colors
+	$color-name : nth($color, 1)
+
+	.fill-#{$color-name}
+		+fill($color-name)
+
+	.text-#{$color-name}
+		+text($color-name)
+
+	.link-#{$color-name}
+		+link($color-name)
+
+	// * Deprecate outline-
+	.outline-#{$color-name}, .stroke-#{$color-name}
+		+stroke($color-name)
+
+
+	.fill-none
+		+fill(none)
+
+
+// .fill-blend
+// 	+fill(yellow)
+// 	:background linear-gradient(0deg, rgba(252,217,0,1) 0%, rgba(252,243,0,1) 100%)

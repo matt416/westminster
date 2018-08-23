@@ -1,0 +1,27 @@
+$row-sizes : (5 : xs, 8 : sm, 12 : md, 15 : lg, 19 : xl)
+
+.row
+	+row
+
+	&50p
+		:width 50%
+		:max-width none
+
+		+display-for(xs sm)
+			:width 100%
+
+	&15-justify-right
+		:padding-left calc((100% - #{grid(15)}) / 2)
+
+	@for $i from 1 through 24
+		@if map-has-key($row-sizes, $i) 
+			&#{$i},
+			&#{map-get($row-sizes, $i)}
+				+row-width($i)
+
+		@else 
+			&#{$i}
+				+row-width($i)
+
+.row ~ .row-divide
+	:border-top 1px color(black, 7) solid

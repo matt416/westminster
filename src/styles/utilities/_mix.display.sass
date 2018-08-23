@@ -1,0 +1,63 @@
+// These must be in order of smallest screen size to largest.
+$media-min : ( 'xs' : false, 'sm' : '512px', 'md' : '768px', 'lg' : '960px', 'xl' : '1280px' )
+$media-max : ( 'xs' : '511px', 'sm' : '767px', 'md' : '959px', 'lg' : '1279px', 'xl' : false )
+
+
+=display-range($min, $max)
+
+	@if map-has-key($media-min, $min)
+		$min : map-get($media-min, $min)
+
+	@if map-has-key($media-max, $max)
+		$max : map-get($media-max, $max)
+
+	// Begin Query
+
+	$query : "screen"
+
+	@if $min 
+		$query : $query + " and (min-width: #{grid($min)})" 
+
+	@if $max // If maximum screen size is smaller than XL, which has no maxiumn size.
+		$query : $query + " and (max-width: #{ grid($max)-1px})"
+
+	// Write the output.
+	@media #{$query}
+		@content
+
+
+=display-for($size)
+
+	$keys : map-keys($media-min)
+
+	$screen-min : 0
+	$screen-max : 0
+
+	@for $i from 1 through length($size)
+		$index : index($keys, nth($size, $i))
+
+		@if $i == 1 // Set the min and max to the first value.
+			$screen-min : $index
+			$screen-max : $index
+
+		@if $index < $screen-min // Overwrite min if next index is lower.
+			$screen-min : $index
+
+		@if $index > $screen-max // Overwrite max if index is higher.
+			$screen-max : $index
+
+
+	// Begin the rule.
+	$query : "screen"
+
+	@if $screen-min > 1 // If minimum screen size is larger than XS, which has no minimum size.
+		$query : $query + " and (min-width: " + map-get($media-min, nth($keys, $screen-min)) + ")" 
+
+	@if $screen-max < 5 // If maximum screen size is smaller than XL, which has no maxiumn size.
+		$query : $query + " and (max-width: " + map-get($media-max, nth($keys, $screen-max)) + ")"
+
+	// Write the output.
+	@media #{$query}
+		@content
+
+

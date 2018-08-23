@@ -1,0 +1,10 @@
+@function font-weight($weight : 'normal')
+	@if map-has-key($font-weight, $weight)
+		@return map-get($font-weight, $weight)
+
+	@warn "Unknown `#{$weight}` in $font-weight."
+	@return null
+
+=font-weight($weight : 'normal')
+	@if map-has-key($font-weight, $weight)
+		:font-weight map-get($font-weight, $weight)

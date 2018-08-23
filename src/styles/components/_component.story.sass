@@ -1,0 +1,43 @@
+.story
+
+	p + h1, p + h2, p + h3, p + h4, p + h5, p + h6
+		:margin-top 48px
+
+	em, i
+		:font-style italic
+
+	strong, b
+		+font-weight(bold)
+
+	// Links that are not buttons
+	a:not([class*="button"])
+		:color color(black)
+		:font-weight font-weight(bold)
+		:text-decoration underline
+
+	// Default appearance
+	*[class="button"]
+		+fill(black)
+		+text(white)
+
+	.underline
+		:text-decoration underline
+
+	img
+		:max-width 100%
+
+	hr
+		+fill(black, 10)
+		:border 0
+		:height 1px
+		:margin 32px auto
+		:width 20%
+
+		&.hr25p
+			:width 25%
+
+		&.hr50p
+			:width 50%
+
+		&.hr75p
+			:width 75%

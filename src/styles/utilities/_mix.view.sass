@@ -1,0 +1,44 @@
+=view($width : 100p, $padding : 32)
+	:max-width 100%
+	:flex-grow 0
+	:flex-shrink 1
+	:word-break normal
+	:display inline-block
+	:position relative
+	+inside(a, $padding)
+	
+	//+display-for(xs sm)
+	//	+inside(y, 16)
+
+	& > h2:last-child, & > h3:last-child, & > h4:last-child, & > h5:last-child, & > h6:last-child, & > ul:last-child, & > p:last-child
+		:margin-bottom 0
+
+	@if map-has-key($view-widths, $width)
+		+view-width-variable($width)
+
+	@else
+		+view-width-fixed($width)
+
+=view-width-fixed($width)
+	
+	:max-width grid($width)
+	:flex-grow 0
+	:flex-shrink 1
+	:flex-basis grid($width)
+
+=view-width-variable($width)
+	@if map-has-key($view-widths, $width)
+		$width : map_get($view-widths, $width)
+	
+	@if $width != 100
+		+display-for(xs sm)
+			:flex-basis 100%
+
+	@if unitless($width)
+		$width : $width#{%}
+
+	:flex-basis $width
+
+=view-for($screensize, $width : 100%)
+	+display-for($screensize)
+		+view($width)

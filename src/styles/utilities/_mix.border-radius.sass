@@ -1,0 +1,6 @@
+=border-radius($radius : 'default')
+	@if map-has-key($border-radius, $radius)
+		:border-radius map-get($border-radius, $radius)
+
+	@else
+		:border-radius $radius

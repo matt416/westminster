@@ -1,0 +1,48 @@
+.event-list
+	:align-items stretch
+	:flex-wrap wrap
+
+	h2
+		:color color(yellow)
+		+autosize-font(16px, 18px)
+		+outside(b, 16)
+
+	.event
+		//+responsive-column(100, 50, 33, 33, 33)
+		:text-align center
+		//+outside(b, 24)
+		:display flex
+		:justify-content center
+		//:border 1px color(white) solid
+		
+		a
+			:display flex
+			:flex-direction column
+			:align-items center
+
+		&__date
+			:display inline-block
+			:border-bottom 2px transparent solid
+			+autosize-font(15px, 16px)
+			+outside(b, 16)
+
+			&--upcoming
+				:border-bottom-color color(yellow)
+				:color color(yellow)
+
+			&--past
+				:color rgba(color(white), 0.5)
+		
+		&__name
+			+autosize-font(16px, 18px)
+			+outside(b, 8)
+
+		&__host,
+		&__location
+			:margin-top auto
+			:font-size 14px
+
+	&--attending
+		.event
+			&__name
+				+autosize-font(16px, 16px)

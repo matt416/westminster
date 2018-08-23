@@ -1,0 +1,54 @@
+// .menu-mobile, .menu-open
+// 	:display flex
+// 	:position fixed
+// 	:top 0
+// 	:left 0
+// 	:width 100vw
+// 	:height 100vh
+// 	+fill(black)
+// 	:z-index 10000
+// 	:flex-direction column
+// 	:align-items stretch
+// 	:justify-content space-around
+// 	:flex-wrap nowrap
+
+// 	> li
+// 		:display inline-block
+// 		:white-space nowrap
+// 		:position relative
+// 		:margin 0
+// 		:flex-grow 1
+// 		:border-top 1px transparent solid
+// 		+stroke(white, 10)
+// 		:display flex
+// 		:justify-content center
+// 		:align-items center
+
+// 		> a
+// 			+autosize-font(18px, 32px)
+// 			:display block
+// 			:font-weight bold
+// 			:padding 4px 0
+
+// 		&.active
+// 			a
+// 				+text(yellow)
+// 				+stroke(yellow)	
+		
+// 		&:hover
+// 			ul.submenu
+// 				:display none
+
+// 	&__switch
+// 		:display none
+// 		:cursor pointer
+
+// 		+display-for(xs sm)
+// 			:display inline-block
+
+// li.menu-mobile__close
+// 	:display none
+
+// .menu-open li.menu-mobile__close
+// .menu-mobile li.menu-mobile__close
+// 	:display block

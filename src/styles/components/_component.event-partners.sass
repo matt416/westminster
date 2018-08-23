@@ -1,0 +1,40 @@
+.event-partner-container
+	// +use(flex, y-stretch, x-start)
+	+inside(y, 64)
+
+	&-priority-one
+		.event-partner-view
+			+view(50p)
+			+inside(x, 16)
+
+
+	&-priority-two
+		.event-partner-view
+			+view(33p)
+			+display-for(xs sm)
+				:flex-basis 50%
+
+	&-priority-three
+		.event-partner-view
+			+view(25p)
+
+	&-priority-four
+		.event-partner-view
+			+view(25p)
+
+.event-partner-view
+	+view(50p)
+	+inside(x, 16)
+
+.event-partner-card
+	//+use(card)
+	+flex(( grow : false, x : center, y : center ))
+	+fill(white)
+	:height 100%
+	:box-shadow 0 2px 5px 1px color(black, 7.5)
+	
+	//+aspect-ratio(16, 9)
+
+	img
+		:max-width 100%
+		:height auto

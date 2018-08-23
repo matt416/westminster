@@ -1,0 +1,8 @@
+=viewport($size)
+	$query : "screen"
+
+	$query : $query + " and (max-width: " + $size * 64px + ")"
+
+	// Write the output.
+	@media #{$query}
+		@content

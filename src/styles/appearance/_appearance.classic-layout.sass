@@ -1,0 +1,51 @@
+.section--primary
+	+fill(yellow)
+	+text(black)
+
+	.button
+		+fill(black)
+		+text(white)
+
+
+.section--primary + .section--primary
+	:border-top 1px color(black, 5) solid
+
+.section--secondary + .section--secondary
+	:border-top 1px color(white, 5) solid
+
+.section--tertiary + .section--tertiary
+	:border-top 1px color(black, 5) solid
+
+
+.section--primary,
+.section--secondary,
+.section--tertiary
+	+inside(y, 32)
+	
+
+.layout
+	+row
+
+.header
+	+view(100p)
+
+	h2
+		+title-size(large)
+
+.layout--full-readable
+	+row-width(12)
+
+	.column
+		+view(100p)
+
+.layout--thirds
+	+row-width(18)
+
+	.column
+		+view(33p)
+
+.layout--half
+	+row-width(18)
+
+	.column
+		+view(50p)

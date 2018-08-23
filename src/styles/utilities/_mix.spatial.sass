@@ -1,0 +1,7 @@
+=spatial($property : false, $axis : false, $size : false)
+	$r_property : map-get($space-property, $property)	
+	$map_axis : map-get($space-axis, $axis)
+	$r_size : map-get($space-size, $size)
+
+	@each $r_axis in $map_axis
+	 	:#{$r_property}-#{$r_axis} $r_size

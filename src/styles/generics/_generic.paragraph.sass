@@ -1,0 +1,18 @@
+// p
+// 	// +not("paragraph-font-")
+// 	// 	+font-size(paragraph, md)
+// 	// 	+line-height(paragraph, md)
+// 	// 	+outside(b, 16)
+
+
+// @each $size in map-get($font-size, paragraph)
+// 	$name : nth($size, 1)
+
+// 	.paragraph-font-#{$name}
+// 		+font-size(paragraph, $name)
+
+
+p
+	:font-size $root-paragraph-font-size
+	:margin-bottom $root-paragraph-margin-after
+	:line-height $root-paragraph-line-height
